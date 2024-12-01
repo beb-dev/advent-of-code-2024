@@ -4,6 +4,9 @@ pub fn solve() -> (String, String) {
     (part1(), part2())
 }
 
+// Get the distance of a pair made of one number of each column
+// starting from the smallest numbers in their respective columns.
+// Get the sums of all distances.
 fn part1() -> String {
     let input = include_str!("../../input/day1.txt");
 
@@ -27,16 +30,16 @@ fn part1() -> String {
         }
     }
 
-    // Get total distance by popping each pair (getting a pair)
-    let mut total_distance = 0;
+    // Get total distance by popping each pair
+    let mut distance = 0;
 
     while !left_column.is_empty() {
         let a = left_column.pop().unwrap();
         let b = right_column.pop().unwrap();
-        total_distance += (a - b).abs();
+        distance += (a - b).abs();
     }
 
-    return total_distance.to_string();
+    return distance.to_string();
 }
 
 // Multiply the numbers in the left column with
@@ -47,7 +50,7 @@ fn part2() -> String {
 
     let size = input.lines().count();
 
-    // Get the numbers and the number of time they appear.
+    // Get the numbers and the number of times they appear.
     let mut left_column = Vec::with_capacity(size);
     let mut right_column = HashMap::new();
 
