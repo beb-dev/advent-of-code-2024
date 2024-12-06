@@ -23,7 +23,7 @@ fn part1() -> String {
 
         // Note: A max-heap and a min-heap will produce the same total distance.
         // The difference comes from where we start (from the smallest or largest number.)
-        // This means we don't need to reverse the values we push to solve the puzzle.
+        // This means we don't need to Reverse() the values we push to solve the puzzle.
         if numbers.len() == 2 {
             left_column.push(numbers[0]);
             right_column.push(numbers[1]);
