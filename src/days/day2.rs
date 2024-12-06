@@ -17,7 +17,7 @@ pub fn solve() -> (String, String) {
             .collect();
 
         // Part 1
-        if _validate(&numbers) {
+        if validate_report(&numbers) {
             part1 += 1;
         }
 
@@ -27,7 +27,7 @@ pub fn solve() -> (String, String) {
         for (i, &num) in numbers.iter().enumerate() {
             numbers_chunk.remove(i);
 
-            if _validate(&numbers_chunk) {
+            if validate_report(&numbers_chunk) {
                 part2 += 1;
                 break;
             } else {
@@ -39,7 +39,7 @@ pub fn solve() -> (String, String) {
     (part1.to_string(), part2.to_string())
 }
 
-fn _validate(report: &Vec<i32>) -> bool {
+fn validate_report(report: &Vec<i32>) -> bool {
     let order = get_order(&report[0], &report[1]);
 
     return report.is_sorted_by(|a, b| is_sorted(a, b, &order) && compare_levels(a, b));
