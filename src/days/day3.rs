@@ -5,9 +5,8 @@ pub fn solve() -> (String, String) {
 
     let mut part1: i64 = 0;
     let mut part2: i64 = 0;
-    let mut is_on = true;
 
-    // Parse input with regex to get commands.
+    // Parse commands using regex
     let regex = Regex::new(
         r#"(?x) 
         (do)\(\) |
@@ -26,7 +25,8 @@ pub fn solve() -> (String, String) {
             .collect::<Vec<_>>() // Create a vector
     });
 
-    // Execute all commands found.
+    // Execute all commands
+    let mut is_on = true;
     for capture in captures {
         match Some(capture).as_ref().map(|c| c.as_slice()) {
             Some(["do"]) => is_on = true,

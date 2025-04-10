@@ -49,29 +49,18 @@ fn solve_part2() -> String {
     let row_count = input.lines().count();
     let row_length = input.lines().next().unwrap().len();
 
-    if row_count < 3 || row_length < 3 {
-        return String::from("0");
-    }
+    let chars: Vec<char> = input.lines().flat_map(|line| line.chars()).collect();
 
-    let mut chars: Vec<char> = Vec::new();
-
-    for line in input.lines() {
-        for c in line.chars() {
-            chars.push(c);
-        }
-    }
-
-    // Search for "MAS" shapes in the input using a flatten 2D array.
-    // The middle point has to always be the letter 'A'.
-    // We skip the edges of the array since we start our search from the middle point.
+    // Search for "MAS" shapes using a 1D array.
+    // The middle point has to be 'A', so we can skip the edges.
     let mut count = 0;
 
     for y in 1..row_count - 1 {
         for x in 1..row_length - 1 {
-            let index = (y * row_length) + x;
+            let i = (y * row_length) + x;
 
-            if chars[index] == 'A' {
-                // Get diagonal values from current position
+            if chars[i] == 'A' {
+                // Get diagonals
                 let top_left = chars[((y - 1) * row_length) + (x - 1)];
                 let top_right = chars[((y - 1) * row_length) + (x + 1)];
                 let bottom_left = chars[((y + 1) * row_length) + (x - 1)];
@@ -122,13 +111,3 @@ fn build_grid(input: &str) -> Vec<Vec<char>> {
 
     return grid;
 }
-
-// fn print_grid(grid: Vec<Vec<char>>) {
-//     for row in grid.iter() {
-//         for character in row.iter() {
-//             print!("{} ", character);
-//         }
-
-//         println!("");
-//     }
-// }
