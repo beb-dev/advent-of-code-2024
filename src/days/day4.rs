@@ -2,13 +2,13 @@ pub fn solve() -> (String, String) {
     let input = include_str!("../../input/day4.txt");
 
     let grid = build_grid(&input);
-    let _part1 = solve_part1(&grid);
-    let _part2 = solve_part2();
+    let part1 = part1(&grid);
+    let part2 = part2();
 
-    (_part1, _part2)
+    (part1, part2)
 }
 
-fn solve_part1(grid: &Vec<Vec<char>>) -> String {
+fn part1(grid: &Vec<Vec<char>>) -> String {
     let mut count = 0;
     let xmas = ['X', 'M', 'A', 'S'];
     let dirs = get_directions();
@@ -43,7 +43,7 @@ fn solve_part1(grid: &Vec<Vec<char>>) -> String {
     count.to_string()
 }
 
-fn solve_part2() -> String {
+fn part2() -> String {
     let input = include_str!("../../input/day4.txt");
 
     let row_count = input.lines().count();
