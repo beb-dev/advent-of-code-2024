@@ -1,11 +1,11 @@
-use days::{day1, day10, day2, day3, day4, day5, /*day6,*/ day7, day8, day9};
+use days::{day1, day10, day11, day2, day3, day4, day5, /*day6,*/ day7, day8, day9};
 use std::fmt::Error;
 
 mod days;
 
 fn main() {
     // TODO: Add a way to choose which day to run with command-line arguments.
-    if let Ok((part1, part2)) = get_day(10) {
+    if let Ok((part1, part2)) = get_day(11) {
         println!("Part 1: {}", part1);
         println!("Part 2: {}", part2);
     }
@@ -23,6 +23,7 @@ fn get_day(day: u8) -> Result<(String, String), Error> {
         8 => Ok(day8::solve()),
         9 => Ok(day9::solve()),
         10 => Ok(day10::solve()),
+        11 => Ok(day11::solve()),
         _ => panic!("Invalid day. Please provide a day between 1 and 25."),
     }
 }
