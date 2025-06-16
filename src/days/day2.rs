@@ -24,6 +24,7 @@ pub fn solve() -> (String, String) {
         // Part 2
         let mut numbers_chunk = numbers.clone();
 
+        // TODO: Can use a VecDeque instead
         for (i, &num) in numbers.iter().enumerate() {
             numbers_chunk.remove(i);
 

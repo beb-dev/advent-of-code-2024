@@ -19,7 +19,7 @@ pub fn solve() -> (String, String) {
     let captures = regex.captures_iter(input).map(|captures| {
         captures
             .iter() // All the captured groups
-            .skip(1) // Skipping the complete match
+            .skip(1) // Skip the complete match
             .flat_map(|c| c) // Ignoring all empty optional matches
             .map(|c| c.as_str()) // Grab the original strings
             .collect::<Vec<_>>() // Create a vector
